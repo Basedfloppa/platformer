@@ -1,0 +1,7 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1705945475
+CharacterBody3D.gd::GDScript::-1::1705262882::0::1::::<>CharacterBody3D<>::
+column.tscn::PackedScene::6574862363065821657::1705198521::0::1::::<><>::
+ground plane.tscn::PackedScene::5533875328332463474::1705198209::0::1::::<><>::
+node_3d.tscn::PackedScene::8395687368879954413::1705262882::0::1::::<><>::uid://br01chminlckq::::res://player.tscn<>uid://ck3weatx4ste5::::res://ground plane.tscn<>uid://c0w6a1bewro1f::::res://column.tscn
+player.tscn::PackedScene::3632823069373278612::1705262458::0::1::::<><>::res://CharacterBody3D.gd

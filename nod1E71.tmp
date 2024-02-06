@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dru60kpstsqwb"]
+
+[ext_resource type="PackedScene" uid="uid://br01chminlckq" path="res://player.tscn" id="1_7xctj"]
+[ext_resource type="PackedScene" uid="uid://ck3weatx4ste5" path="res://ground plane.tscn" id="2_doeps"]
+[ext_resource type="PackedScene" uid="uid://c0w6a1bewro1f" path="res://column.tscn" id="3_im5t1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lktsm"]
+size = Vector3(75, 1, 75)
+
+[sub_resource type="Gradient" id="Gradient_vp0gy"]
+offsets = PackedFloat32Array(0.243697, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h5n31"]
+gradient = SubResource("Gradient_vp0gy")
+fill_from = Vector2(0.510989, 1)
+fill_to = Vector2(0.494505, 0)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7nwlf"]
+panorama = SubResource("GradientTexture2D_h5n31")
+
+[sub_resource type="Sky" id="Sky_nkbl2"]
+sky_material = SubResource("PanoramaSkyMaterial_7nwlf")
+
+[sub_resource type="Environment" id="Environment_ltq4t"]
+background_mode = 2
+sky = SubResource("Sky_nkbl2")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("1_7xctj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 0)
+
+[node name="Camera" type="Camera3D" parent="player"]
+transform = Transform3D(0.999957, 2.99752e-05, -0.00928451, 0, 0.999995, 0.00322851, 0.00928456, -0.00322837, 0.999952, -0.0689928, 0.029552, -0.276869)
+current = true
+fov = 85.0
+
+[node name="respawn" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="respawn"]
+shape = SubResource("BoxShape3D_lktsm")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_doeps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Column" parent="." groups=["SpecialGeometry"] instance=ExtResource("3_im5t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83028, 15.5158, 12.2592)
+
+[node name="Column2" parent="." groups=["SpecialGeometry"] instance=ExtResource("3_im5t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04093, 15.3853, 13.6458)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ltq4t")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 5.99206)
+shadow_enabled = true
+spot_range = 59.5604
+spot_angle = 38.3812
+
+[connection signal="body_entered" from="respawn" to="player" method="_on_respawn_body_entered"]

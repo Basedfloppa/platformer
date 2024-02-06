@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dru60kpstsqwb"]
+
+[ext_resource type="PackedScene" uid="uid://br01chminlckq" path="res://player.tscn" id="1_7xctj"]
+[ext_resource type="PackedScene" uid="uid://ck3weatx4ste5" path="res://ground plane.tscn" id="2_doeps"]
+[ext_resource type="PackedScene" uid="uid://c0w6a1bewro1f" path="res://column.tscn" id="3_im5t1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lktsm"]
+size = Vector3(75, 1, 75)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6l82g"]
+sky_top_color = Color(0.654902, 0.811765, 0.878431, 1)
+sky_horizon_color = Color(0.513726, 0.686275, 0.772549, 1)
+
+[sub_resource type="Sky" id="Sky_ighkb"]
+sky_material = SubResource("ProceduralSkyMaterial_6l82g")
+
+[sub_resource type="Environment" id="Environment_0847i"]
+background_mode = 2
+sky = SubResource("Sky_ighkb")
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("1_7xctj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 0)
+
+[node name="respawn" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="respawn"]
+shape = SubResource("BoxShape3D_lktsm")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_doeps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Column" parent="." groups=["SpecialGeometry"] instance=ExtResource("3_im5t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83028, 15.5158, 12.2592)
+
+[node name="Column2" parent="." groups=["SpecialGeometry"] instance=ExtResource("3_im5t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04093, 15.3853, 13.6458)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0847i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.855914, -0.00887505, 0.517042, 0.382229, 0.662583, 0.644116, -0.3483, 0.748936, -0.563721, 12.7442, 49.7095, -43.057)
+light_bake_mode = 1
+directional_shadow_mode = 0
+
+[connection signal="body_entered" from="respawn" to="player" method="_on_respawn_body_entered"]
