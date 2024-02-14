@@ -1,18 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck3weatx4ste5"]
+[gd_scene load_steps=5 format=3 uid="uid://ck3weatx4ste5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypqw4"]
-roughness = 0.0
+[ext_resource type="Texture2D" uid="uid://yyegkrf50n25" path="res://kenney_prototype-textures/PNG/Dark/texture_01.png" id="1_s7pld"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuamy"]
+albedo_texture = ExtResource("1_s7pld")
+anisotropy = 1.0
+refraction_scale = -0.78
+detail_blend_mode = 3
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 0
+grow_amount = -7.06
+point_size = 128.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_riwbi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3uvy"]
-size = Vector3(50, 1, 50)
 
 [node name="StaticBody3D" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_ypqw4")
+material_override = SubResource("StandardMaterial3D_fuamy")
 mesh = SubResource("BoxMesh_riwbi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

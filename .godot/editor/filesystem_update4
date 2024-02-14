@@ -1,2 +1,5 @@
 res://node_3d.tscn
 res://player.tscn
+res://ground plane.tscn
+res://column.tscn
+res://CharacterBody3D.gd
