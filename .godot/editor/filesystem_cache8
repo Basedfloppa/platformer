@@ -1,10 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707914291
-CharacterBody3D.gd::GDScript::-1::1707888780::0::1::::<>CharacterBody3D<>::
-column.tscn::PackedScene::6574862363065821657::1707888780::0::1::::<><>::uid://u4hqwiedocm6::::res://kenney_prototype-textures/PNG/Red/texture_01.png
-ground plane.tscn::PackedScene::5533875328332463474::1707888780::0::1::::<><>::uid://yyegkrf50n25::::res://kenney_prototype-textures/PNG/Dark/texture_01.png
-node_3d.tscn::PackedScene::8395687368879954413::1707888780::0::1::::<><>::uid://br01chminlckq::::res://player.tscn<>uid://ck3weatx4ste5::::res://ground plane.tscn
-player.tscn::PackedScene::3632823069373278612::1707888780::0::1::::<><>::res://CharacterBody3D.gd
+::res://::1707927124
+CharacterBody3D.gd::GDScript::-1::1707927345::0::1::::<>CharacterBody3D<>::
+column.tscn::PackedScene::6574862363065821657::1707923872::0::1::::<><>::uid://u4hqwiedocm6::::res://kenney_prototype-textures/PNG/Red/texture_01.png
+ground plane.tscn::PackedScene::5533875328332463474::1707923872::0::1::::<><>::uid://yyegkrf50n25::::res://kenney_prototype-textures/PNG/Dark/texture_01.png
+node_3d.tscn::PackedScene::8395687368879954413::1707927124::0::1::::<><>::uid://br01chminlckq::::res://player.tscn<>uid://ck3weatx4ste5::::res://ground plane.tscn<>uid://c0w6a1bewro1f::::res://column.tscn
+player.tscn::PackedScene::3632823069373278612::1707927345::0::1::::<><>::res://CharacterBody3D.gd<>uid://bl2pbheaxf8e5::::res://char/char.gltf
+char.tscn::PackedScene::9043249613492962027::1707927356::0::1::::<><>::uid://bl2pbheaxf8e5::::res://char/char.gltf
+::res://char/::1707927087
+char.gltf::PackedScene::3215149077630112322::1707926461::1707926826::1::::<><>::uid://cm2j1lye3qww3::::res://char/char_0.png<>uid://bs6moc0slg7sk::::res://char/char_1.png
+char_0.png::CompressedTexture2D::5671439189030601888::1707926812::1707927087::1::::<><>::
+char_1.png::CompressedTexture2D::3714569329081024590::1707926818::1707927087::1::::<><>::
 ::res://Godot-SplashScreens-main/::1707687459
 ::res://Godot-SplashScreens-main/Godot-SplashScreens-main/::1707744936
 Preview.png::CompressedTexture2D::9053051614060884936::1694197392::1707744936::1::::<><>::

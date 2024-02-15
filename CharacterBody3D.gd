@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var Anim : AnimationTree = $AnimationTree
+
 @export var base_spd = 10.0
 @export var run_spd = 20.0
 @export var max_spd = 100.0
@@ -32,6 +34,7 @@ func _input(event):
 
 func _physics_process(delta):
 	movement(delta)
+	animation()
 
 #falling out of the world
 func _on_respawn_body_entered(body):
@@ -87,4 +90,7 @@ func movement(delta):
 		spd = spd * 0.7
 	
 	move_and_slide()
-	
+
+#animation handling
+func animation():
+	Anim["parameters/conditions"] == true

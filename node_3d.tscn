@@ -40,7 +40,6 @@ transform = Transform3D(-0.960284, 0.279025, 0, -0.279025, -0.960284, 0, 0, 0, 1
 light_energy = 16.0
 light_volumetric_fog_energy = 0.0
 light_bake_mode = 1
-shadow_enabled = true
 omni_range = 4096.0
 omni_attenuation = 0.594605
 omni_shadow_mode = 0

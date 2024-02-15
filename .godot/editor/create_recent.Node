@@ -1,6 +1,10 @@
+AnimationTree
+AnimationPlayer
+AnimatableBody3D
+ImporterMeshInstance3D
+MeshInstance3D
 Node3D
 OmniLight3D
-MeshInstance3D
 DirectionalLight3D
 CollisionShape3D
 Area3D

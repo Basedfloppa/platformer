@@ -1,5 +1,9 @@
 res://node_3d.tscn
 res://player.tscn
-res://ground plane.tscn
-res://column.tscn
 res://CharacterBody3D.gd
+res://char/FastRun0.res
+res://char/HappyIdle0.res
+res://char/JumpingUp0.res
+res://char/Running0.res
+res://char/SlowRun0.res
+res://char/T-Pose (No Animation).res
