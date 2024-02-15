@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0w6a1bewro1f"]
+
+[ext_resource type="Texture2D" uid="uid://jjx5wj65jxk8" path="res://assets/kenney_prototype-textures/texture_01.svg" id="1_thsky"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxvvp"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("1_thsky")
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_03kbc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5h666"]
+
+[node name="SpecialPlane" type="StaticBody3D" groups=["SpecialGeometry"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_bxvvp")
+mesh = SubResource("BoxMesh_03kbc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5h666")
