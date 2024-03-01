@@ -83,10 +83,6 @@ jump={
 ]
 }
 
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-
 [shader_globals]
 
 sgt_player_position={

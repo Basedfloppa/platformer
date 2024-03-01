@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0w6a1bewro1f"]
+[gd_scene load_steps=7 format=3 uid="uid://c0w6a1bewro1f"]
 
-[ext_resource type="Texture2D" uid="uid://jjx5wj65jxk8" path="res://assets/kenney_prototype-textures/texture_01.svg" id="1_thsky"]
+[ext_resource type="Script" path="res://special_geometry.gd" id="1_sqbu7"]
+[ext_resource type="Texture2D" uid="uid://hw3wyamiqyoe" path="res://assets/kenney_prototype-textures/texture_01.svg" id="1_thsky"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxvvp"]
 albedo_color = Color(1, 0, 0, 1)
@@ -12,7 +13,10 @@ texture_filter = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5h666"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nuu2o"]
+
 [node name="SpecialPlane" type="StaticBody3D" groups=["SpecialGeometry"]]
+script = ExtResource("1_sqbu7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_bxvvp")
@@ -20,3 +24,11 @@ mesh = SubResource("BoxMesh_03kbc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5h666")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_nuu2o")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
