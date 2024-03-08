@@ -3,14 +3,14 @@ extends CharacterBody3D
 @onready var Anim = $AnimationTree["parameters/playback"]
 @onready var log = $"../Control/Label"
 
-# @export var jump_buffer = 0.1
-@export var coyote_time = 0.1
-@export var base_spd 		: int = 10
-@export var run_spd 		: int = 20
-@export var max_spd 		: int = 50
-@export var max_double_jump : int = 1
-@export var gravity 		: int = 10
-@export var deceleration 	: int = 2
+@export var jump_buffer		: float = 0.1
+@export var coyote_time		: float = 0.1
+@export var base_spd 		: int   = 10
+@export var run_spd 		: int   = 20
+@export var max_spd 		: int   = 50
+@export var max_double_jump : int   = 1
+@export var gravity 		: int   = 10
+@export var deceleration 	: int   = 2
 
 const JUMP_VELOCITY : int = 15
 
@@ -42,6 +42,7 @@ func movement(delta):
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
 			if double_jump >= 1: double_jump -= 1
+	
 	if Input.is_action_pressed("run"):
 		spd = clamp(spd + (2 * delta),base_spd,max_spd)
 	else:
@@ -66,17 +67,14 @@ func movement(delta):
 		elif ang >= 0 and ang <= 45:
 			spd *= 0.7 
 	
-	log.text = ""
-	log.text += "double_jump = " + str(double_jump) + "\n"
-	log.text += "coyote_time = " + str(coyote_time) + "\n"
-	
 	move_and_slide()
 
 #animation handling
 func animation():
 	if is_on_floor():
-		var vec = floor(abs(velocity.z + velocity.x))
-		if vec == 0:
+		var vec = abs(velocity.z) + abs(velocity.x)
+		log.text = str(vec)
+		if vec < 0.09:
 			Anim.travel("Idle")
 		else:
 			if vec > 0 and vec <= 10:
